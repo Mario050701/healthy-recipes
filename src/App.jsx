@@ -1,21 +1,33 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
-import About from "./components/About";
-import RecipesSection from "./components/RecipesSection";
 import BuiltForLife from "./components/BuiltForLife";
 import ReadyToCook from "./components/ReadyToCook";
-import Footer from "./components/Footer";
+import AboutPage from "./components/AboutPage";
+import RecipesPage from "./components/RecipesPage";
 
 const App = () => {
   return (
     <>
       <Navbar />
-      <HeroSection />
-      <RecipesSection />
-      <BuiltForLife />
-      <ReadyToCook />
+      <main>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <HeroSection />
+                <BuiltForLife />
+                <ReadyToCook />
+              </>
+            }
+          />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/recipes" element={<RecipesPage />} />
+        </Routes>
+      </main>
       <Footer />
     </>
   );

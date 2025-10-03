@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "./assets/logo.svg";
 import vector from "./assets/vector.svg";
 import vector2 from "./assets/vector2.svg";
@@ -14,9 +15,30 @@ const Navbar = () => {
         </div>
 
         <ul className="flex gap-[40px] text-[18px] font-semibold mt-8 cursor-pointer">
-          <li>Home</li>
-          <li>About</li>
-          <li>Recipes</li>
+          <li>
+            <Link
+              to="/"
+              className="hover:underline decoration-3 decoration-[#FE9F6B] underline-offset-4 transition duration-500"
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/about"
+              className="hover:underline decoration-3 decoration-[#FE9F6B] underline-offset-4 transition duration-500"
+            >
+              About
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/recipes"
+              className="hover:underline decoration-3 decoration-[#FE9F6B] underline-offset-4 transition duration-500"
+            >
+              Recipes
+            </Link>
+          </li>
         </ul>
 
         <button className="w-[167px] h-[52px] rounded-[10px] bg-[#163A34] cursor-pointer text-white font-bold text-xl mt-8">
