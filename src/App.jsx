@@ -7,6 +7,7 @@ import BuiltForLife from "./components/BuiltForLife";
 import ReadyToCook from "./components/ReadyToCook";
 import AboutPage from "./components/AboutPage";
 import RecipesPage from "./components/RecipesPage";
+import RecipesSection from "./components/RecipesSection";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
             element={
               <>
                 <HeroSection />
+                <RecipesSection />
                 <BuiltForLife />
                 <ReadyToCook />
               </>

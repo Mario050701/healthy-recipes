@@ -12,14 +12,14 @@ const Footer = () => {
 
           <ul className="flex gap-[24px]">
             <li>
-              <img src={instaIcon} alt="" />
+              <img className="cursor-pointer" src={instaIcon} alt="" />
             </li>
             <li>
-              <img src={butterflyIcon} alt="" />
+              <img className="cursor-pointer" src={butterflyIcon} alt="" />
             </li>
 
             <li>
-              <img src={tiktok} alt="" />
+              <img className="cursor-pointer" src={tiktok} alt="" />
             </li>
           </ul>
         </div>

@@ -1,12 +1,14 @@
 import React from "react";
-import RecipesSection from "./RecipesSection";
+import RecipesSection from "./RecipesSection.jsx";
+import RecipesHeroSection from "./RecipesHeroSection.jsx";
+import RecipesList from "./RecipesList.jsx";
 
 const RecipesPage = () => {
   return (
-    <main className="p-8">
-      <h1 className="text-3xl font-bold mb-4 text-center">All Recipes</h1>
-      <RecipesSection />
-    </main>
+    <>
+      <RecipesHeroSection />
+      <RecipesList />
+    </>
   );
 };
 
