@@ -4,6 +4,7 @@ import timer from "./assets/timer.svg";
 import food from "./assets/food.svg";
 import arrowDown from "./assets/arrowDown.svg";
 import Search from "./assets/Search.svg";
+import { Link } from "react-router-dom";
 
 const RecipesList = () => {
   const [recipes, setRecipes] = useState([]);
@@ -12,12 +13,19 @@ const RecipesList = () => {
   const [showPrep, setShowPrep] = useState(false);
   const [showCook, setShowCook] = useState(false);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetch("https://recipes-api-cmg9.vercel.app/api/recipes")
       .then((res) => res.json())
-      .then(setRecipes)
-      .catch((err) => console.error(err));
+      .then((data) => {
+        setRecipes(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   const filteredRecipes = recipes.filter((recipe) => {
@@ -34,10 +42,21 @@ const RecipesList = () => {
     return prepOk && cookOk && searchOk;
   });
 
+  if (loading) {
+    return (
+      <div className="flex flex-col justify-center items-center h-screen -mt-80">
+        <div className="w-20 h-20 border-5 border-t-[#163A34] border-gray-200 rounded-full animate-spin"></div>
+        <p className="mt-5 text-[#163A34] font-bold text-lg">
+          Loading recipes...
+        </p>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="flex gap-4 mb-[24px] px-[132px] ">
-        <div>
+        <div className="relative">
           <button
             onClick={() => setShowPrep(!showPrep)}
             className="bg-white mt-[64px] rounded-lg p-4 w-[181px] h-[47px] flex justify-between items-center"
@@ -66,7 +85,7 @@ const RecipesList = () => {
                 <input
                   type="radio"
                   name="prep"
-                  value=""
+                  value={time}
                   checked={prepFilter === ""}
                   onChange={() => setPrepFilter("")}
                 />
@@ -79,7 +98,7 @@ const RecipesList = () => {
         <div className="relative">
           <button
             onClick={() => setShowCook(!showCook)}
-            className="bg-white mt-[64px] w-[181px] h-[47px] shadow rounded-lg p-4 flex justify-between items-center"
+            className="bg-white mt-[64px] w-[181px] h-[47px] rounded-lg p-4 flex justify-between items-center"
           >
             <span className="font-semibold text-[#163A34]">
               {cookFilter || "Max Cook Time"}
@@ -134,52 +153,62 @@ const RecipesList = () => {
       </div>
 
       <div className="grid grid-cols-3 gap-[40px] px-[132px]">
-        {filteredRecipes.map((recipe) => (
-          <div
-            key={recipe._id}
-            className="p-2 shadow-lg rounded-2xl bg-white flex flex-col min-h-[550px]"
-          >
-            <img
-              src={recipe.image}
-              alt={recipe.title}
-              className="rounded-lg w-full h-[300px] object-cover"
-            />
-            <h2 className="text-[20px] font-medium text-[#163A34] my-2 leading-tight">
-              {recipe.title}
-            </h2>
-            <p className="text-[#395852]">{recipe.overview}</p>
+        {filteredRecipes.length === 0 ? (
+          <p className="col-span-3 text-center text-[#163A34] font-semibold text-lg mt-10">
+            No recipes found
+          </p>
+        ) : (
+          filteredRecipes.map((recipe) => (
+            <div
+              key={recipe._id}
+              className="p-2 shadow-lg rounded-2xl bg-white flex flex-col min-h-[550px]"
+            >
+              <img
+                src={recipe.image}
+                alt={recipe.title}
+                className="rounded-lg w-full h-[300px] object-cover"
+              />
+              <h2 className="text-[20px] font-medium text-[#163A34] my-2 leading-tight">
+                {recipe.title}
+              </h2>
+              <p className="text-[#395852]">{recipe.overview}</p>
 
-            <div className="text-sm text-gray-700 my-4">
-              <div className="flex items-center gap-6 mb-2">
-                <div className="flex items-center gap-2">
-                  <img src={user} alt="user icon" className="w-5 h-5" />
-                  <span className="text-[#163A34]">
-                    Servings: {recipe.servings}
-                  </span>
+              <div className="text-sm text-gray-700 my-4">
+                <div className="flex items-center gap-6 mb-2">
+                  <div className="flex items-center gap-2">
+                    <img src={user} alt="user icon" className="w-5 h-5" />
+                    <span className="text-[#163A34]">
+                      Servings: {recipe.servings}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <img src={timer} alt="timer icon" className="w-5 h-5" />
+                    <span className="text-[#163A34]">
+                      Prep: {recipe.prepMinutes} mins
+                    </span>
+                  </div>
                 </div>
+
                 <div className="flex items-center gap-2">
-                  <img src={timer} alt="timer icon" className="w-5 h-5" />
+                  <img src={food} alt="food icon" className="w-5 h-5" />
                   <span className="text-[#163A34]">
-                    Prep: {recipe.prepMinutes} mins
+                    Cook: {recipe.cookMinutes} min
                   </span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2">
-                <img src={food} alt="food icon" className="w-5 h-5" />
-                <span className="text-[#163A34]">
-                  Cook: {recipe.cookMinutes} min
-                </span>
-              </div>
+              <Link
+                to={`/recipe/${recipe._id}`}
+                state={recipe}
+                className="mt-auto block text-center mb-2 bg-[#163A34] w-full h-12 rounded-full text-white font-bold leading-12"
+              >
+                View Recipe
+              </Link>
             </div>
-
-            <button className="mt-auto cursor-pointer mb-2 bg-[#163A34] w-full h-12 rounded-full text-white font-bold">
-              View Recipe
-            </button>
-          </div>
-        ))}
+          ))
+        )}
       </div>
-      <div className="border-t border-gray-300  mt-[96px]"></div>
+      <div className="border-t border-gray-300 mt-[96px]"></div>
     </>
   );
 };

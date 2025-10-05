@@ -8,6 +8,7 @@ import ReadyToCook from "./components/ReadyToCook";
 import AboutPage from "./components/AboutPage";
 import RecipesPage from "./components/RecipesPage";
 import RecipesSection from "./components/RecipesSection";
+import RecipeDetails from "./components/RecipeDetails";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/recipes" element={<RecipesPage />} />
+          <Route path="/recipe/:id" element={<RecipeDetails />} />
         </Routes>
       </main>
       <Footer />
