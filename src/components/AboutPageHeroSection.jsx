@@ -1,5 +1,5 @@
 import React from "react";
-import AboutPageImg from "./assets/AboutPageImg.svg";
+import AboutPageImg from "../assets/AboutPageImg.svg";
 
 const AboutPageHeroSection = () => {
   return (

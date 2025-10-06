@@ -1,7 +1,6 @@
-import React from "react";
-import butterflyIcon from "./assets/butterflyIcon.svg";
-import tiktok from "./assets/tiktok.svg";
-import instaIcon from "./assets/instaIcon.svg";
+import butterflyIcon from "../assets/butterflyIcon.svg";
+import tiktok from "../assets/tiktok.svg";
+import instaIcon from "../assets/instaIcon.svg";
 
 const Footer = () => {
   return (

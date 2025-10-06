@@ -1,5 +1,5 @@
 import React from "react";
-import BuiltForLifeImg from "./assets/BuiltForLifeImg.svg";
+import BuiltForLifeImg from "../assets/beyondThePlateImg.svg";
 
 const BuiltForLife = () => {
   return (

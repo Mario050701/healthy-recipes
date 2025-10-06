@@ -1,9 +1,7 @@
-import React from "react";
-
-import moreRecipesImg2 from "./assets/moreRecipesImg2.jpg";
-import user from "./assets/user.svg";
-import timer from "./assets/timer.svg";
-import food from "./assets/food.svg";
+import moreRecipesImg2 from "../assets/moreRecipesImg2.jpg";
+import user from "../assets/user.svg";
+import timer from "../assets/timer.svg";
+import food from "../assets/food.svg";
 
 const MoreRecipes = () => {
   return (

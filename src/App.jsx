@@ -1,14 +1,25 @@
-import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import HeroSection from "./components/HeroSection";
-import BuiltForLife from "./components/BuiltForLife";
-import ReadyToCook from "./components/ReadyToCook";
-import AboutPage from "./components/AboutPage";
-import RecipesPage from "./components/RecipesPage";
-import RecipesSection from "./components/RecipesSection";
+
+import AboutPage from "./pages/AboutPage";
+import RecipesPage from "./pages/RecipesPage";
+
 import RecipeDetails from "./components/RecipeDetails";
+import Home from "./pages/Home";
+
+
+//!CODE REVIEW
+// 1. Sufficient React imports
+// 2. No variables used
+// 3. No appropriate font
+// 4. Structure - components, pages, assets
+// 5. Images naming convention - lowerCase
+// 6. Missing alt on images
+// 7. Missing pattern on Hero on Homepage
+// 8. Could use NavLink instead of Link
+// 9. Responsive
+
 
 const App = () => {
   return (
@@ -18,14 +29,7 @@ const App = () => {
         <Routes>
           <Route
             path="/"
-            element={
-              <>
-                <HeroSection />
-                <RecipesSection />
-                <BuiltForLife />
-                <ReadyToCook />
-              </>
-            }
+            element={<Home />}
           />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/recipes" element={<RecipesPage />} />

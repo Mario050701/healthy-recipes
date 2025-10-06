@@ -1,9 +1,9 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import userIcon from "./assets/user.svg";
-import timerIcon from "./assets/timer.svg";
-import foodIcon from "./assets/food.svg";
-import right from "./assets/right.svg";
+import userIcon from "../assets/user.svg";
+import timerIcon from "../assets/timer.svg";
+import foodIcon from "../assets/food.svg";
+import right from "../assets/right.svg";
 
 import MoreRecipes from "./MoreRecipes";
 

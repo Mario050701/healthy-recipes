@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import user from "./assets/user.svg";
-import timer from "./assets/timer.svg";
-import food from "./assets/food.svg";
-import arrowDown from "./assets/arrowDown.svg";
-import Search from "./assets/Search.svg";
+import user from "../assets/user.svg";
+import timer from "../assets/timer.svg";
+import food from "../assets/food.svg";
+import arrowDown from "../assets/arrowDown.svg";
+import Search from "../assets/Search.svg";
 
 const RecipesList = () => {
   const [recipes, setRecipes] = useState([]);
@@ -15,6 +15,8 @@ const RecipesList = () => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
 
+
+  // could use custom hook
   useEffect(() => {
     setLoading(true);
     fetch("https://recipes-api-cmg9.vercel.app/api/recipes")

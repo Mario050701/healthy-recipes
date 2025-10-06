@@ -1,5 +1,4 @@
-import React from "react";
-import HeroSectionImg from "./assets/HeroSectionImg.svg";
+import HeroSectionImg from "../assets/HeroSectionImg.svg";
 
 const HeroSection = () => {
   return (
@@ -16,7 +15,7 @@ const HeroSection = () => {
       <button className="bg-[#163A34] h-[60px] w-[198px] text-xl font-bold mt-[56px] rounded-[10px] text-[#FFFFFF] cursor-pointer ">
         Start exploring
       </button>
-      <div className=" px-[120px]  ">
+      <div className="px-[120px]">
         <img
           className="mt-[80px] w-full rounded-[10px] "
           src={HeroSectionImg}
