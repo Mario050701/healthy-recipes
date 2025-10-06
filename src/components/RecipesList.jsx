@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import user from "./assets/user.svg";
 import timer from "./assets/timer.svg";
 import food from "./assets/food.svg";
 import arrowDown from "./assets/arrowDown.svg";
 import Search from "./assets/Search.svg";
-import { Link } from "react-router-dom";
 
 const RecipesList = () => {
   const [recipes, setRecipes] = useState([]);
@@ -25,6 +25,7 @@ const RecipesList = () => {
       })
       .catch((err) => {
         console.error(err);
+        setLoading(false);
       });
   }, []);
 
@@ -53,86 +54,73 @@ const RecipesList = () => {
     );
   }
 
+  const renderFilterDropdown = (
+    filter,
+    setFilter,
+    show,
+    setShow,
+    options,
+    label
+  ) => (
+    <div className="relative">
+      <button
+        onClick={() => setShow(!show)}
+        className="bg-white mt-[64px] rounded-lg p-4 w-[181px] h-[47px] flex justify-between items-center"
+      >
+        <span className="font-semibold text-[#163A34]">{filter || label}</span>
+        <img src={arrowDown} alt="arrow down" className="w-4 h-4" />
+      </button>
+      {show && (
+        <div className="absolute top-full left-0 mt-2 w-full bg-white shadow-lg rounded-lg p-4 z-10">
+          {options.map((time) => (
+            <label
+              key={time}
+              className="flex items-center gap-2 mb-2 cursor-pointer"
+            >
+              <input
+                type="radio"
+                name={label}
+                value={time}
+                checked={filter === time}
+                onChange={(e) => setFilter(e.target.value)}
+              />
+              {time} minutes
+            </label>
+          ))}
+          <label className="flex items-center gap-2 text-xs text-gray-500 mt-2 cursor-pointer">
+            <input
+              type="radio"
+              name={label}
+              value=""
+              checked={filter === ""}
+              onChange={() => setFilter("")}
+            />
+            Clear
+          </label>
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <>
-      <div className="flex gap-4 mb-[24px] px-[132px] ">
-        <div className="relative">
-          <button
-            onClick={() => setShowPrep(!showPrep)}
-            className="bg-white mt-[64px] rounded-lg p-4 w-[181px] h-[47px] flex justify-between items-center"
-          >
-            <span className="font-semibold text-[#163A34]">
-              {prepFilter || "Max Prep Time"}
-            </span>
-            <img src={arrowDown} alt="arrow down" className="w-4 h-4" />
-          </button>
-
-          {showPrep && (
-            <div className="absolute top-full left-0 mt-2 w-full bg-white shadow-lg rounded-lg p-4 z-10">
-              {["0", "5", "10"].map((time) => (
-                <label key={time} className="flex items-center gap-2 mb-2">
-                  <input
-                    type="radio"
-                    name="prep"
-                    value={time}
-                    checked={prepFilter === time}
-                    onChange={(e) => setPrepFilter(e.target.value)}
-                  />
-                  {time} minutes
-                </label>
-              ))}
-              <label className="flex items-center gap-2 text-xs text-gray-500 mt-2">
-                <input
-                  type="radio"
-                  name="prep"
-                  value={time}
-                  checked={prepFilter === ""}
-                  onChange={() => setPrepFilter("")}
-                />
-                Clear
-              </label>
-            </div>
-          )}
-        </div>
-
-        <div className="relative">
-          <button
-            onClick={() => setShowCook(!showCook)}
-            className="bg-white mt-[64px] w-[181px] h-[47px] rounded-lg p-4 flex justify-between items-center"
-          >
-            <span className="font-semibold text-[#163A34]">
-              {cookFilter || "Max Cook Time"}
-            </span>
-            <img src={arrowDown} alt="arrow down" className="w-4 h-4" />
-          </button>
-
-          {showCook && (
-            <div className="absolute top-full left-0 mt-2 w-full bg-white shadow-lg rounded-lg p-4 z-10">
-              {["0", "5", "10", "15", "20"].map((time) => (
-                <label key={time} className="flex items-center gap-2 mb-2">
-                  <input
-                    type="radio"
-                    name="cook"
-                    value={time}
-                    checked={cookFilter === time}
-                    onChange={(e) => setCookFilter(e.target.value)}
-                  />
-                  {time} minutes
-                </label>
-              ))}
-              <label className="flex items-center gap-2 text-xs text-gray-500 mt-2">
-                <input
-                  type="radio"
-                  name="cook"
-                  value=""
-                  checked={cookFilter === ""}
-                  onChange={() => setCookFilter("")}
-                />
-                Clear
-              </label>
-            </div>
-          )}
-        </div>
+      <div className="flex gap-4 mb-[24px] px-[132px]">
+        {renderFilterDropdown(
+          prepFilter,
+          setPrepFilter,
+          showPrep,
+          setShowPrep,
+          ["0", "5", "10"],
+          "Max Prep Time"
+        )}
+        {renderFilterDropdown(
+          cookFilter,
+          setCookFilter,
+          showCook,
+          setShowCook,
+          ["0", "5", "10", "15", "20"],
+          "Max Cook Time"
+        )}
 
         <div className="mt-[64px] ml-auto w-[310px] h-[27px]">
           <div className="flex items-center border border-gray-200 rounded-lg px-[16px] py-[14px] focus-within:ring-2 focus-within:ring-[#163A34]">
