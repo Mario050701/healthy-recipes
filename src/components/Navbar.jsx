@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import vector from "../assets/vector.svg";
 import vector2 from "../assets/vector2.svg";
@@ -7,45 +7,60 @@ const Navbar = () => {
   return (
     <>
       <nav className="flex items-center justify-between mx-[60px]">
-        <div className="flex bg-primary items-center gap-2 mt-8 relative">
+        <div className="flex items-center gap-2 mt-8 relative">
           <img className="absolute -left-4 top-0.5 " src={vector2} alt="" />
           <img className="w-[18px] h-[34px] gap-[10px]" src={vector} alt="" />
           <img className="w-[200px] h-[28px] " src={logo} alt="" />
         </div>
 
-        <ul className="flex gap-[40px] text-[18px] font-semibold mt-8 cursor-pointer">
+        <ul className="flex gap-[40px] text-[18px] font-semibold font-main mt-[32px] cursor-pointer">
           <li>
-            <Link
+            <NavLink
               to="/"
-              className="hover:underline decoration-3 decoration-[#FE9F6B] underline-offset-4 transition duration-500"
+              className={({ isActive }) =>
+                isActive
+                  ? "underline decoration-orange decoration-3 underline-offset-4"
+                  : ""
+              }
             >
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to="/about"
-              className="hover:underline decoration-3 decoration-[#FE9F6B] underline-offset-4 transition duration-500"
+              className={({ isActive }) =>
+                isActive
+                  ? "underline decoration-orange decoration-3 underline-offset-4"
+                  : ""
+              }
             >
               About
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to="/recipes"
-              className="hover:underline decoration-3 decoration-[#FE9F6B] underline-offset-4 transition duration-500"
+              className={({ isActive }) =>
+                isActive
+                  ? "underline decoration-orange decoration-3 underline-offset-4"
+                  : ""
+              }
             >
               Recipes
-            </Link>
+            </NavLink>
           </li>
         </ul>
 
-        <button className="w-[167px] h-[52px] rounded-[10px] bg-[#163A34] cursor-pointer text-white font-bold text-xl mt-8">
+        <NavLink
+          to="/recipes"
+          className="w-[167px] h-[52px] font-main rounded-[10px] bg-primary text-white font-bold text-xl mt-[20px] flex justify-center items-center transition-colors duration-300 hover:bg-btn-hover"
+        >
           Browse recipes
-        </button>
+        </NavLink>
       </nav>
 
-      <div className="border mt-8 border-gray-200 "></div>
+      <div className="border mt-8 border-line-color"></div>
     </>
   );
 };

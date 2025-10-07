@@ -1,4 +1,3 @@
-import React from "react";
 import { useLocation } from "react-router-dom";
 import userIcon from "../assets/user.svg";
 import timerIcon from "../assets/timer.svg";

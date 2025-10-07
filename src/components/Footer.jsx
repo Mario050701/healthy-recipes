@@ -7,18 +7,30 @@ const Footer = () => {
     <>
       <footer>
         <div className="flex justify-between px-[124px] mt-[40px]  mb-[40px] ">
-          <span>Made with ❤ and 🥑</span>
+          <span className="font-nunitoSans">Made with 💘 and 🥑</span>
 
           <ul className="flex gap-[24px]">
             <li>
-              <img className="cursor-pointer" src={instaIcon} alt="" />
+              <img
+                className="cursor-pointer w-[22px] h-[22px]"
+                src={instaIcon}
+                alt="Instagram Logo"
+              />
             </li>
             <li>
-              <img className="cursor-pointer" src={butterflyIcon} alt="" />
+              <img
+                className="cursor-pointer w-[22px] h-[22px]"
+                src={butterflyIcon}
+                alt="Butterfly Image"
+              />
             </li>
 
             <li>
-              <img className="cursor-pointer" src={tiktok} alt="" />
+              <img
+                className="cursor-pointer w-[22px] h-[22px]"
+                src={tiktok}
+                alt="TikTok Logo"
+              />
             </li>
           </ul>
         </div>

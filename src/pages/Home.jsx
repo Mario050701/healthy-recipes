@@ -4,14 +4,14 @@ import BuiltForLife from "../components/BuiltForLife";
 import ReadyToCook from "../components/ReadyToCook";
 
 const Home = () => {
-    return (
-        <>
-            <HeroSection />
-            <RecipesSection />
-            <BuiltForLife />
-            <ReadyToCook />
-        </>
-    )
-}
+  return (
+    <>
+      <HeroSection />
+      <RecipesSection />
+      <BuiltForLife />
+      <ReadyToCook />
+    </>
+  );
+};
 
-export default Home
+export default Home;

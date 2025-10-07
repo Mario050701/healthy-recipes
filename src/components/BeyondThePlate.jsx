@@ -1,4 +1,3 @@
-import React from "react";
 import BeyondThePlateImg from "../assets/BeyondThePlateImg.svg";
 
 const BeyondThePlate = () => {

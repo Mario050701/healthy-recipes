@@ -1,4 +1,3 @@
-import React from "react";
 import ReadyToCook from "../components/ReadyToCook";
 import AboutPageHeroSection from "../components/AboutPageHeroSection";
 import WhyWeExist from "../components/WhyWeExist";
