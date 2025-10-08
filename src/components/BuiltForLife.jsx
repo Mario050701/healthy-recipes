@@ -7,7 +7,7 @@ const BuiltForLife = () => {
 
       <div className="flex items-center justify-between gap-[40px]">
         <div className="flex flex-col">
-          <h3 className="text-5xl font-extrabold  font-main text-primary mb-[20px] ">
+          <h3 className="text-5xl font-extrabold font-main text-primary mb-[20px]">
             Built for real life
           </h3>
           <p className="text-xl font-nunitoSans text-secondary mb-4 relative">
@@ -27,7 +27,11 @@ const BuiltForLife = () => {
         </div>
 
         <div>
-          <img src={builtForLifeImg} alt="" className="rounded-[10px] " />
+          <img
+            src={builtForLifeImg}
+            alt="Quick healthy meal example"
+            className="rounded-[10px]"
+          />
         </div>
       </div>
     </section>

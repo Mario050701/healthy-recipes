@@ -1,16 +1,14 @@
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.svg";
-import vector from "../assets/vector.svg";
-import vector2 from "../assets/vector2.svg";
+import logo1 from "../assets/logo1.svg";
 
 const Navbar = () => {
   return (
     <>
       <nav className="flex items-center justify-between mx-[60px]">
-        <div className="flex items-center gap-2 mt-8 relative">
-          <img className="absolute -left-4 top-0.5 " src={vector2} alt="" />
-          <img className="w-[18px] h-[34px] gap-[10px]" src={vector} alt="" />
-          <img className="w-[200px] h-[28px] " src={logo} alt="" />
+        <div className="flex items-center gap-2 mt-8">
+          <img className="h-[32px] w-[27px]" src={logo1} alt="Logo 1" />
+          <img className="h-[28px] w-[200px]" src={logo} alt="Main Logo" />
         </div>
 
         <ul className="flex gap-[40px] text-[18px] font-semibold font-main mt-[32px] cursor-pointer">

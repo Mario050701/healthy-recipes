@@ -6,8 +6,10 @@ const Footer = () => {
   return (
     <>
       <footer>
-        <div className="flex justify-between px-[124px] mt-[40px]  mb-[40px] ">
-          <span className="font-nunitoSans">Made with 💘 and 🥑</span>
+        <div className="flex justify-between px-[124px] mt-[40px] mb-[40px]">
+          <span className="font-nunitoSans font-semibold text-secondary">
+            Made with 💘 and 🥑
+          </span>
 
           <ul className="flex gap-[24px]">
             <li>
@@ -21,10 +23,9 @@ const Footer = () => {
               <img
                 className="cursor-pointer w-[22px] h-[22px]"
                 src={butterflyIcon}
-                alt="Butterfly Image"
+                alt="Butterfly Icon"
               />
             </li>
-
             <li>
               <img
                 className="cursor-pointer w-[22px] h-[22px]"

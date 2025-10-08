@@ -3,19 +3,19 @@ import BeyondThePlateImg from "../assets/BeyondThePlateImg.svg";
 const BeyondThePlate = () => {
   return (
     <>
-      <div className="border-t border-gray-300 mb-[85px] mt-[96px]"></div>
+      <div className="border-t border-line-color mb-[85px] mt-[96px]"></div>
 
       <section className="flex justify-between items-center px-[124px] mt-[96px] mb-[85px] gap-[64px]">
         <div className="flex-1">
-          <h2 className="text-[48px] font-extrabold text-[#163A34] mb-6">
+          <h2 className="text-[48px] font-extrabold font-main text-primary mb-6">
             Beyond the plate
           </h2>
-          <p className="text-[#395852] mb-6">
+          <p className="text-[20px] font-nunitoSans text-secondary mb-6">
             We believe food is a catalyst for <br />
             community and well-being. By sharing <br />
             approachable recipes, we hope to:
           </p>
-          <ul className="list-disc pl-6 text-[#395852] space-y-3">
+          <ul className="list-disc pl-6 text-[20px] font-nunitoSans text-secondary space-y-3">
             <li>
               Encourage family dinners and social <br /> cooking.
             </li>
@@ -32,8 +32,8 @@ const BeyondThePlate = () => {
         <div className="flex-1 flex justify-center">
           <img
             src={BeyondThePlateImg}
-            alt=""
-            className="rounded-[10px] w-[750px] h-[500px]"
+            alt="Sharing healthy food and community"
+            className="rounded-[20px] w-[750px] h-[500px]"
           />
         </div>
       </section>

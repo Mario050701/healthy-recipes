@@ -4,7 +4,7 @@ import user from "../assets/user.svg";
 import timer from "../assets/timer.svg";
 import food from "../assets/food.svg";
 import arrowDown from "../assets/arrowDown.svg";
-import Search from "../assets/Search.svg";
+import search from "../assets/search.svg";
 
 const RecipesList = () => {
   const [recipes, setRecipes] = useState([]);
@@ -12,11 +12,9 @@ const RecipesList = () => {
   const [cookFilter, setCookFilter] = useState("");
   const [showPrep, setShowPrep] = useState(false);
   const [showCook, setShowCook] = useState(false);
-  const [search, setSearch] = useState("");
+  const [searchValue, setSearchValue] = useState("");
   const [loading, setLoading] = useState(true);
 
-
-  // could use custom hook
   useEffect(() => {
     setLoading(true);
     fetch("https://recipes-api-cmg9.vercel.app/api/recipes")
@@ -37,10 +35,10 @@ const RecipesList = () => {
     const cookOk =
       cookFilter === "" || recipe.cookMinutes <= Number(cookFilter);
     const searchOk =
-      search === "" ||
-      recipe.title.toLowerCase().includes(search.toLowerCase()) ||
+      searchValue === "" ||
+      recipe.title.toLowerCase().includes(searchValue.toLowerCase()) ||
       recipe.ingredients?.some((ing) =>
-        ing.toLowerCase().includes(search.toLowerCase())
+        ing.toLowerCase().includes(searchValue.toLowerCase())
       );
     return prepOk && cookOk && searchOk;
   });
@@ -48,8 +46,8 @@ const RecipesList = () => {
   if (loading) {
     return (
       <div className="flex flex-col justify-center items-center h-screen -mt-80">
-        <div className="w-20 h-20 border-5 border-t-[#163A34] border-gray-200 rounded-full animate-spin"></div>
-        <p className="mt-5 text-[#163A34] font-bold text-lg">
+        <div className="w-20 h-20 border-5 border-t-primary border-line-color rounded-full animate-spin"></div>
+        <p className="mt-5 text-primary font-bold text-lg font-main">
           Loading recipes...
         </p>
       </div>
@@ -67,9 +65,9 @@ const RecipesList = () => {
     <div className="relative">
       <button
         onClick={() => setShow(!show)}
-        className="bg-white mt-[64px] rounded-lg p-4 w-[181px] h-[47px] flex justify-between items-center"
+        className="bg-white mt-[64px] border border-line-color rounded-lg p-4 w-[181px] h-[47px] flex justify-between items-center font-nunitoSans text-secondary"
       >
-        <span className="font-semibold text-[#163A34]">{filter || label}</span>
+        <span className="font-semibold text-primary">{filter || label}</span>
         <img src={arrowDown} alt="arrow down" className="w-4 h-4" />
       </button>
       {show && (
@@ -77,7 +75,7 @@ const RecipesList = () => {
           {options.map((time) => (
             <label
               key={time}
-              className="flex items-center gap-2 mb-2 cursor-pointer"
+              className="flex items-center gap-2 mb-2 cursor-pointer font-nunitoSans text-secondary"
             >
               <input
                 type="radio"
@@ -89,7 +87,7 @@ const RecipesList = () => {
               {time} minutes
             </label>
           ))}
-          <label className="flex items-center gap-2 text-xs text-gray-500 mt-2 cursor-pointer">
+          <label className="flex items-center gap-2 text-xs text-secondary mt-2 cursor-pointer font-nunitoSans">
             <input
               type="radio"
               name={label}
@@ -125,18 +123,18 @@ const RecipesList = () => {
         )}
 
         <div className="mt-[64px] ml-auto w-[310px] h-[27px]">
-          <div className="flex items-center border border-gray-200 rounded-lg px-[16px] py-[14px] focus-within:ring-2 focus-within:ring-[#163A34]">
+          <div className="flex items-center border border-line-color rounded-lg px-[16px] py-[14px] focus-within:ring-2 focus-within:ring-primary">
             <img
-              src={Search}
+              src={search}
               alt="Search icon"
               className="w-[17px] h-[17px] mr-2"
             />
             <input
               type="text"
               placeholder="Search by name or ingredient..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="flex-1 outline-none text-[#163A34] font-semibold"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              className="flex-1 outline-none text-primary font-semibold font-nunitoSans"
             />
           </div>
         </div>
@@ -144,45 +142,59 @@ const RecipesList = () => {
 
       <div className="grid grid-cols-3 gap-[40px] px-[132px]">
         {filteredRecipes.length === 0 ? (
-          <p className="col-span-3 text-center text-[#163A34] font-semibold text-lg mt-10">
+          <p className="col-span-3 text-center text-primary font-semibold text-lg font-main mt-10">
             No recipes found
           </p>
         ) : (
           filteredRecipes.map((recipe) => (
             <div
               key={recipe._id}
-              className="p-2 shadow-lg rounded-2xl bg-white flex flex-col min-h-[550px]"
+              className="shadow-lg rounded-2xl bg-white p-3 flex flex-col min-h-[550px]"
             >
               <img
                 src={recipe.image}
                 alt={recipe.title}
                 className="rounded-lg w-full h-[300px] object-cover"
               />
-              <h2 className="text-[20px] font-medium text-[#163A34] my-2 leading-tight">
+              <h2 className="text-[20px] font-bold text-primary my-2 leading-tight font-main">
                 {recipe.title}
               </h2>
-              <p className="text-[#395852]">{recipe.overview}</p>
+              <p className="text-secondary font-semibold font-nunitoSans">
+                {recipe.overview}
+              </p>
 
-              <div className="text-sm text-gray-700 my-4">
+              <div className="text-sm text-gray-700 my-4 font-nunitoSans">
                 <div className="flex items-center gap-6 mb-2">
                   <div className="flex items-center gap-2">
-                    <img src={user} alt="user icon" className="w-5 h-5" />
-                    <span className="text-[#163A34]">
+                    <img
+                      src={user}
+                      alt="Servings icon"
+                      className="w-[20px] h-[20px]"
+                    />
+                    <span className="text-primary font-semibold">
                       Servings: {recipe.servings}
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <img src={timer} alt="timer icon" className="w-5 h-5" />
-                    <span className="text-[#163A34]">
+                    <img
+                      src={timer}
+                      alt="Prep icon"
+                      className="w-[20px] h-[20px]"
+                    />
+                    <span className="text-primary font-semibold">
                       Prep: {recipe.prepMinutes} mins
                     </span>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <img src={food} alt="food icon" className="w-5 h-5" />
-                  <span className="text-[#163A34]">
-                    Cook: {recipe.cookMinutes} min
+                  <img
+                    src={food}
+                    alt="Cook icon"
+                    className="w-[20px] h-[20px]"
+                  />
+                  <span className="text-primary font-semibold">
+                    Cook: {recipe.cookMinutes} mins
                   </span>
                 </div>
               </div>
@@ -190,7 +202,7 @@ const RecipesList = () => {
               <Link
                 to={`/recipe/${recipe._id}`}
                 state={recipe}
-                className="mt-auto block text-center mb-2 bg-[#163A34] w-full h-12 rounded-full text-white font-bold leading-12"
+                className="mt-auto mb-2 bg-primary w-full h-12 rounded-full text-white font-bold font-main flex items-center justify-center transition-colors duration-300 hover:bg-btn-hover"
               >
                 View Recipe
               </Link>
@@ -198,7 +210,7 @@ const RecipesList = () => {
           ))
         )}
       </div>
-      <div className="border-t border-gray-300 mt-[96px]"></div>
+      <div className="border-t border-line-color mt-[96px]"></div>
     </>
   );
 };
