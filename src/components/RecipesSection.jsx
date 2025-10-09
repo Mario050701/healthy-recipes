@@ -4,13 +4,13 @@ import img3 from "../assets/img3.svg";
 
 const RecipesSection = () => {
   return (
-    <section className="mt-20 px-[124px]">
-      <h3 className="text-[48px] font-extrabold text-primary font-main mt-[96px] mb-[48px] text-center">
+    <section className="mt-20 px-4 lg:px-[124px]">
+      <h3 className="text-[48px] font-extrabold text-primary font-main mt-[96px] mb-[48px] text-left lg:text-center">
         What you’ll get
       </h3>
 
-      <div className="flex justify-between">
-        <div className="flex flex-col items-center text-center">
+      <div className="flex flex-col gap-10 items-start md:flex-col lg:flex-row lg:justify-between">
+        <div className="flex flex-col items-start text-left">
           <div className="border border-line-color rounded-[10px] w-[60px] h-[60px] flex justify-center items-center bg-white mb-[24px]">
             <img src={img1} alt="" className="w-[23px] h-[32px]" />
           </div>
@@ -22,7 +22,7 @@ const RecipesSection = () => {
           </p>
         </div>
 
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-start text-left">
           <div className="border border-line-color rounded-[10px] w-[60px] h-[60px] flex justify-center items-center bg-white mb-[24px]">
             <img src={img2} alt="" className="w-[23px]h-[32px]" />
           </div>
@@ -35,7 +35,7 @@ const RecipesSection = () => {
           </p>
         </div>
 
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-start text-left">
           <div className="border border-line-color rounded-[10px] w-[60px] h-[60px] flex justify-center items-center bg-white mb-[24px]">
             <img src={img3} alt="" className="w-[23px]h-[32px]" />
           </div>
