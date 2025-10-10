@@ -6,15 +6,18 @@
   --color-primary: #163a34;
   --color-secondary: #395852;
   --color-third: #d0dcd9;
+  /* Ovde je samo greska u nazivu, trebalo bi da je TERTIARY, posto ide Primary, pa Secondary pa Tertiary, nije strasno */
   --color-white: #ffffff;
   --color-orange: #fe9f6b;
   --color-line-color: #e0e6e3;
   --color-btn-hover: #395852;
   --color-div-main: #e9ede8;
+  /* Nije mi jasno ime ove varijable - sta znaci div-main? */
 
   --font-main: "Nunito", sans-serif;
   --font-nunitoSans: "Nunito Sans", sans-serif;
 }
 body {
   background: #f6f5f1;
+  /* I za ovu boju si mogao varijablu da napraviss */
 }
