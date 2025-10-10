@@ -16,6 +16,7 @@ const Navbar = () => {
         </div>
 
         <ul className="flex gap-[40px] text-[18px] font-semibold font-main mt-[32px] cursor-pointer lg:flex hidden">
+          {/* // Flex i hidden u isto vreme?? Ne moze i jedno i drugo */}
           <li>
             <NavLink
               to="/"
@@ -57,6 +58,7 @@ const Navbar = () => {
         <NavLink
           to="/recipes"
           className="w-[167px] h-[52px] font-main rounded-[10px] bg-primary text-white font-bold text-xl mt-[20px] flex justify-center items-center transition-colors duration-300 hover:bg-btn-hover lg:flex hidden"
+        // Flex i hidden u isto vreme?? Ne moze i jedno i drugo
         >
           Browse recipes
         </NavLink>
@@ -70,22 +72,17 @@ const Navbar = () => {
           </button>
 
           <div
-            className={`absolute top-[60px] right-0 bg-white border border-line-color rounded-xl shadow-xl p-6 flex flex-col items-start gap-5 z-40 transform transition-all duration-300 ease-in-out ${
-              isOpen
-                ? "opacity-100 translate-y-0 pointer-events-auto"
-                : "opacity-0 -translate-y-5 pointer-events-none"
-            }`}
+            className={`absolute top-[60px] right-0 bg-white border border-line-color rounded-xl shadow-xl p-6 flex flex-col items-start gap-5 z-40 transform transition-all duration-300 ease-in-out ${isOpen
+              ? "opacity-100 translate-y-0 pointer-events-auto"
+              : "opacity-0 -translate-y-5 pointer-events-none"
+              }`}
           >
             <ul className="flex flex-col items-start gap-4 text-[18px] font-semibold font-main cursor-pointer 4">
               <li>
                 <NavLink
                   to="/"
                   onClick={() => setIsOpen(false)}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "underline decoration-orange decoration-3 underline-offset-4"
-                      : ""
-                  }
+
                 >
                   Home
                 </NavLink>

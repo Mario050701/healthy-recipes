@@ -10,15 +10,21 @@ import Home from "./pages/Home";
 
 
 //!CODE REVIEW
-// 1. Sufficient React imports
-// 2. No variables used
-// 3. No appropriate font
-// 4. Structure - components, pages, assets
-// 5. Images naming convention - lowerCase
-// 6. Missing alt on images
-// 7. Missing pattern on Hero on Homepage
-// 8. Could use NavLink instead of Link
-// 9. Responsive
+// 1. Sufficient React imports ✔
+// 2. No variables used ✔
+// 3. No appropriate font ✔
+// 4. Structure - components, pages, assets ✔
+//! 5. Images naming convention - lowerCase - nisu svi nazivi promenjeni, ostalo je :
+//!  Search.png i AboutPageImg.svg
+// 6. Missing alt on images ✔
+// 7. Missing pattern on Hero on Homepage ✔
+// 8. Could use NavLink instead of Link ✔ 
+//? Dobro je mogao si i ovo lakse resenje, umesto da dodajes na svaki isActive klasu :
+//  a.active {
+//   color: red; 
+//   OVDE PISES CSS KOJI TI TREBA
+// }
+// 9. Responsive ✔ ODLICAN, vidim da nisi radio za ostale stranice, ako imas vremena odradi :)
 
 
 const App = () => {
