@@ -4,9 +4,9 @@ const WhyWeExist = () => {
   return (
     <>
       <div className="border-t border-line-color mb-[85px] mt-[96px]"></div>
-      <section className="flex justify-between items-start px-[124px] mt-[96px] mb-[85px]">
+      <section className="flex justify-between items-start px-[124px] mt-[96px] mb-[85px] max-sm:flex-col max-sm:px-4 max-md:flex-col max-md:px-[32px] ">
         <div>
-          <h2 className="text-[48px] font-extrabold font-main text-primary">
+          <h2 className="text-[48px] font-extrabold font-main text-primary max-sm:mb-10 max-sm:text-[40px]  max-md:mb-10">
             Why we exist
           </h2>
         </div>

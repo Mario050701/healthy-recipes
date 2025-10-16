@@ -8,7 +8,6 @@ const AboutPage = () => {
   return (
     <>
       <AboutPageHeroSection />
-
       <WhyWeExist />
       <OurFood />
       <BeyondThePlate />

@@ -24,7 +24,7 @@ const RecipesSection = () => {
 
         <div className="flex flex-col items-start text-left">
           <div className="border border-line-color rounded-[10px] w-[60px] h-[60px] flex justify-center items-center bg-white mb-[24px]">
-            <img src={img2} alt="" className="w-[23px]h-[32px]" />
+            <img src={img2} alt="" className="w-[23px] h-[32px]" />
           </div>
           <h2 className="text-[32px] font-main mb-[12px] text-primary font-bold">
             Minimum fuss
