@@ -104,7 +104,7 @@ const RecipesList = () => {
 
   return (
     <>
-      <div className="flex gap-4 mb-[24px] px-[132px]">
+      <div className="flex flex-col lg:flex-row gap-4 mb-[24px] px-[132px] max-md:-gap-[20px]">
         {renderFilterDropdown(
           prepFilter,
           setPrepFilter,
@@ -122,8 +122,8 @@ const RecipesList = () => {
           "Max Cook Time"
         )}
 
-        <div className="mt-[64px] ml-auto w-[310px] h-[27px]">
-          <div className="flex items-center border border-line-color rounded-lg px-[16px] py-[14px] focus-within:ring-2 focus-within:ring-primary">
+        <div className="w-full lg:w-[310px] lg:ml-auto mt-4 lg:mt-[64px]">
+          <div className="flex items-center border border-line-color rounded-lg px-[16px] py-[14px] focus-within:ring-2 focus-within:ring-primary bg-white">
             <img
               src={search}
               alt="Search icon"
@@ -140,7 +140,7 @@ const RecipesList = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-[40px] px-[132px]">
+      <div className="grid grid-cols-1 max-md:grid-cols-1  lg:grid-cols-3 gap-[40px] px-[132px] ">
         {filteredRecipes.length === 0 ? (
           <p className="col-span-3 text-center text-primary font-semibold text-lg font-main mt-10">
             No recipes found
