@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import user from "../assets/user.svg";
 import timer from "../assets/timer.svg";
